@@ -19,12 +19,7 @@
   margin-top: 3.5%;
   width:200px;
   height: 400px;
-}
-button{
-  background-color: darkcyan;
-  border-color: darkcyan;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: black;
+
 }
 h1{
   margin-left: 210px;
@@ -37,6 +32,7 @@ h2{
   text-align: center;
   color: darkslategray;
 }
-p{
+li{
+  list-style: none;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }

@@ -2,36 +2,34 @@ import "./../App.css";
 import React, { useState } from "react";
 import Header from "./Header";
 export default function(){
-    const [todo,setTodo]=useState([])
-    
+    const [state,setState]=useState([])
+    const [done,setdone]=useState([])
     return(
         <div className="ok">
             <Header/>
             <div className="row">
-                <Todo props={setTodo}/>
-                <Done props={todo}/>
+                <Todo state={state} setState={setState} done={done} setdone={setdone}/>
+                <Done done={done} />
             </div>
             
         </div>
     );
 }
 
-function Todo({props}){
-    const [state,setState]=useState([])
-    const [done,setdone]=useState([])
+function Todo({state, setState, done, setdone}){
+    
     const [input,setInput]=useState("")
     const inputValue = (str)=>{
         setInput(str)
     }
     const save = (str)=>{
-        const someState=state
-        someState.push(str)
-        setState([...someState])
+        setState((e)=>[...e,str]);
     }
-    const remove = (index)=>{
+    const remove = (e,index)=>{
+        e.preventDefault();
         const someState=state;
         setdone([...done,state[index]])
-        props(done)
+        setState(done)
         someState.splice(index,1)
         setState([...someState])
 
@@ -39,24 +37,24 @@ function Todo({props}){
     return(
         <div className="body">
             <div className="input">
-                <input type={"text"} onChange={(onChangeValue)=>{inputValue(onChangeValue.target.value)}}></input>
-                <button type="button" onClick={()=>{save(input)}}>Enregistrer</button>
+                <input type={"text"} onChange={(onChangeValue)=>{inputValue(onChangeValue.target.value)}} onKeyDown={(e)=> e.key === "Enter" && save(input)}></input>
+              
             </div>
             
             <div className="todo">
                 <h2>To Do</h2>
-                {state.map((data,id)=>(<p><input type={"checkbox"} onChange={()=>{remove(id)}}></input>{data}</p>))}
+                {state.map((data,id)=>(<li key={id}><input type={"checkbox"} onClick={(e)=>{remove(e,id)}}></input>{data}</li>))}
             </div>
         </div>
         
     )
 }
 
-function Done({props}){
+function Done({done}){
     return(
         <div className="done">
                 <h2>Done</h2>
-            {props.map((value, id)=>(<p>{value}</p>))}
+            {done.map((value, id)=>(<li key={id}>{value}</li>))}
         </div>
     )
 }
