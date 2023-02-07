@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create snapshoot 1`] = `
+<div
+  className="done"
+>
+  <h2>
+    Done
+  </h2>
+  <li>
+    value1
+  </li>
+  <li>
+    value2
+  </li>
+</div>
+`;
+
+exports[`create snapshoot 2`] = `
+<div
+  className="body"
+>
+  <div
+    className="input"
+  >
+    <input
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      type="text"
+    />
+  </div>
+  <div
+    className="todo"
+  >
+    <h2>
+      To Do
+    </h2>
+  </div>
+</div>
+`;

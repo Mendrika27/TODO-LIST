@@ -1,7 +1,7 @@
-import "./../App.css";
 import React, { useState } from "react";
 import Header from "./Header";
-export default function(){
+// import "./..App.css";
+export default function Main(){
     const [state,setState]=useState([])
     const [done,setdone]=useState([])
     return(
@@ -16,7 +16,7 @@ export default function(){
     );
 }
 
-function Todo({state, setState, done, setdone}){
+export function Todo({state, setState, done, setdone}){
     
     const [input,setInput]=useState("")
     const inputValue = (str)=>{
@@ -50,7 +50,7 @@ function Todo({state, setState, done, setdone}){
     )
 }
 
-function Done({done}){
+export function Done({done}){
     return(
         <div className="done">
                 <h2>Done</h2>
